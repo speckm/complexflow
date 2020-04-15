@@ -2,20 +2,17 @@
   "name": "complexflow",
   "version": "0.0.1",
   "description": "Run complex async function scenarios with ease",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint './src/**/*.{js,ts,tsx}'",
     "test": "jest",
-    "test:watch": "jest --watchAll",
     "build": "tsc",
-    "watch": "tsc -w",
-    "start": "npm link && nodemon",
     "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/93v/npm-typescript-package-boilerplate.git"
+    "url": "https://github.com/speckm/complexflow.git"
   },
   "keywords": [
     "Hello",
@@ -27,9 +24,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/93v/npm-typescript-package-boilerplate/issues"
+    "url": "https://github.com/speckm/complexflow/issues"
   },
-  "homepage": "https://github.com/93v/npm-typescript-package-boilerplate#readme",
+  "homepage": "https://github.com/speckm/complexflow#readme",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm test",
@@ -57,10 +54,9 @@
     "typescript": "^3.8.3"
   },
   "files": [
-    "dist/**/*"
+    "lib/**/*"
   ],
   "dependencies": {
-    "function-threads": "^1.0.3",
     "lodash": "^4.17.15"
   }
 }
