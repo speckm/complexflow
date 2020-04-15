@@ -1,6 +1,8 @@
 import ComplexFlow from '..';
 
-import * as shared from '../shared';
+export const sleep = (ms: number) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 interface TestObject {
     one?: number;
@@ -13,44 +15,44 @@ interface TestObject {
 
 const calc1 = async (object: TestObject) => {
     object.one = 1;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc2 = async (object: TestObject) => {
     object.two = 2;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc3 = async (object: TestObject) => {
     object.three = 3;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc4 = async (object: TestObject) => {
     object.four = 4;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc5 = async (object: TestObject) => {
     object.five = 5;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc35 = async (object: TestObject) => {
     object.three = 5;
     object.five = 5;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
 const calc6 = async (object: TestObject) => {
     object.six = 6;
-    await shared.sleep(100);
+    await sleep(100);
     return object;
 };
 
