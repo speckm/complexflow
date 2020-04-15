@@ -63,7 +63,6 @@ typings/
 .next
 
 # npm build output
-/dist
 
 .sonarlint/
 
