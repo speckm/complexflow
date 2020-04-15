@@ -1,0 +1,66 @@
+{
+  "name": "complexflow",
+  "version": "0.0.1",
+  "description": "Run complex async function scenarios with ease",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint './src/**/*.{js,ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "npm link && nodemon",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/93v/npm-typescript-package-boilerplate.git"
+  },
+  "keywords": [
+    "Hello",
+    "Greeter"
+  ],
+  "author": {
+    "name": "93v",
+    "email": "93v@protonmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/93v/npm-typescript-package-boilerplate/issues"
+  },
+  "homepage": "https://github.com/93v/npm-typescript-package-boilerplate#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.2.1",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "25.2.7",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.4",
+    "semantic-release": "^17.0.4",
+    "ts-jest": "25.2.1",
+    "typescript": "^3.8.3"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "function-threads": "^1.0.3",
+    "lodash": "^4.17.15"
+  }
+}
