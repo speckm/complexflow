@@ -1,6 +1,6 @@
 {
   "name": "complexflow",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Run complex async function scenarios with ease",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,29 +34,33 @@
       "pre-push": "npm run lint && npm test"
     }
   },
+  "dependencies": {
+    "lodash.intersection": "^4.4.0",
+    "lodash.isequal": "^4.5.0",
+    "lodash.pickby": "^4.6.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@types/jest": "^25.2.1",
-    "@types/lodash": "^4.14.149",
-    "@types/node": "^13.11.0",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
+    "@types/jest": "^25.2.3",
+    "@types/lodash.intersection": "^4.4.6",
+    "@types/lodash.isequal": "^4.5.5",
+    "@types/lodash.pickby": "^4.6.6",
+    "@types/node": "^13.13.16",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
     "jest": "25.2.7",
-    "nodemon": "^2.0.2",
-    "prettier": "^2.0.4",
-    "semantic-release": "^17.0.4",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1",
+    "semantic-release": "^17.1.1",
     "ts-jest": "25.2.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7"
   },
   "files": [
     "lib/**/*"
-  ],
-  "dependencies": {
-    "lodash": "^4.17.15"
-  }
+  ]
 }

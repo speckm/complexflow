@@ -56,6 +56,12 @@ const calc6 = async (object: TestObject) => {
     return object;
 };
 
+const calcMutate = async (object: TestObject) => {
+    object.one = (object?.one ?? 0) + 1;
+    await sleep(100);
+    return object;
+};
+
 test('Single Functions', async () => {
     jest.setTimeout(10000);
     const cf = new ComplexFlow<TestObject>({});
@@ -172,4 +178,19 @@ test('Concurrent Access Detection', async () => {
     });
 
     expect(cf.run()).rejects.toEqual(new Error('Concurrent property access three'));
+});
+
+test('Data access working', async () => {
+    const args: TestObject = {
+        one: 1,
+    };
+
+    jest.setTimeout(10000);
+    const cf = new ComplexFlow<TestObject>(args);
+    cf.add({
+        fn: calcMutate,
+    });
+
+    const result = await cf.run();
+    expect(result.one).toEqual(2);
 });
