@@ -96,4 +96,4 @@ MIT
 
 # Changelog
 
-* 0.1.0 - Initial commit Remove default import from `index.d.ts` and add `@types/browserify` dependency.
+* 0.1.0 - Initial commit.
