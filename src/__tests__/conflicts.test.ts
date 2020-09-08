@@ -64,7 +64,7 @@ const calcMutate = async (object: TestObject) => {
 
 test('Single Functions', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc1,
     });
@@ -74,7 +74,7 @@ test('Single Functions', async () => {
 
 test('Multiple Functions', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc1,
     });
@@ -104,7 +104,7 @@ test('Multiple Functions', async () => {
 
 test('Performance', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc1,
     });
@@ -135,7 +135,7 @@ test('Performance', async () => {
 
 test('Faulty Dependency Validate', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc1,
         depends: [calc2],
@@ -154,7 +154,7 @@ test('Faulty Dependency Validate', async () => {
 
 test('Faulty Dependecy Run Exception', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc1,
         depends: [calc2],
@@ -169,7 +169,7 @@ test('Faulty Dependecy Run Exception', async () => {
 
 test('Concurrent Access Detection', async () => {
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>({});
+    const cf = new ComplexFlow<TestObject>({}, { detectConficts: true });
     cf.add({
         fn: calc3,
     });
@@ -186,7 +186,7 @@ test('Data access working', async () => {
     };
 
     jest.setTimeout(10000);
-    const cf = new ComplexFlow<TestObject>(args);
+    const cf = new ComplexFlow<TestObject>(args, { detectConficts: true });
     cf.add({
         fn: calcMutate,
     });

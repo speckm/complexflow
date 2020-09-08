@@ -28,7 +28,7 @@ class ComplexFlow<T> {
 
     // Default Options
     private options: ComplexOptions = {
-        detectConficts: true,
+        detectConficts: false,
     };
 
     public duration = 0;
@@ -53,32 +53,32 @@ class ComplexFlow<T> {
         this.duration = 0;
 
         while (nNotExecuted.length > 0) {
-            const pRun = nNextExecuted.map((item) => item.fn({ ...this.storage }));
+            const pRun = this.options.detectConficts ? nNextExecuted.map((item) => item.fn({ ...this.storage })) : nNextExecuted.map((item) => item.fn(this.storage));
             const rResults = await Promise.all(pRun);
 
-            // Merge Results
-            let aChanges: string[] = [];
+            // Merge Results if Conflict Detection ONLY
+            if (this.options.detectConficts) {
+                let aChanges: string[] = [];
 
-            for (const result of rResults) {
-                // Test for concurrent updates
-                const newChanges = pickBy(result as Record<string, any>, (value: any, key: string) => {
-                    return !isEqual(this.storage[key], value);
-                });
+                for (const result of rResults) {
+                    // Test for concurrent updates
+                    const newChanges = pickBy(result as Record<string, any>, (value: any, key: string) => {
+                        return !isEqual(this.storage[key], value);
+                    });
 
-                const changedKeys = Object.keys(newChanges);
+                    const changedKeys = Object.keys(newChanges);
 
-                // Conflict Detection
-                if (this.options.detectConficts) {
+                    // Conflict Detection
                     if (intersection(aChanges, changedKeys).length > 0) {
                         throw new Error('Concurrent property access ' + intersection(aChanges, changedKeys).join(', '));
                     }
+
+                    aChanges = aChanges.concat(changedKeys);
                 }
 
-                aChanges = aChanges.concat(changedKeys);
-            }
-
-            for (const result of rResults) {
-                this.storage = { ...this.storage, ...result };
+                for (const result of rResults) {
+                    this.storage = { ...this.storage, ...result };
+                }
             }
 
             const aExecutedLabels = nNextExecuted.map((item) => item.fn.name);
