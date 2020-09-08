@@ -79,14 +79,14 @@ As the complexflow-scheduler needs to be able to invoke the supplied functions o
 In this mode all function work on the same object which is passed by reference to the functions. In this mode there may be concurrent access to data in the object. You need to take care of the concurrency by yourself. You create an instance for this mode with:
 
 ```typescript
-const cf = new ComplexFlow<any>(args, { detectConficts: false });   /// false is default
+const cf = new ComplexFlow<any>(args, { detectConficts: false }); // false is default
 ```
 
 ## Restricted common access
 In this mode all function work a copies of the supplied object which is copied when the function is called by the scheduler. After the execution of an async function the result is merged back into the object. In this mode complexflow throws an exception when it detects concurrent access to an attribute of two different functions. Be aware, that the results of an function are only merged back into the object AFTER execution of the single function. You create a complexflow scheduler with concurrency detection with this:
 
 ```typescript
-const cf = new ComplexFlow<any>(args, { detectConficts: false });   /// false is default
+const cf = new ComplexFlow<any>(args, { detectConficts: true });
 ```
 
 # License
