@@ -10,8 +10,7 @@ Complexflow helps you run complex async functions with multiple dependencies by 
 # Installation
 
 ```shell
-$ npm i -g npm
-$ npm i lodash
+$ npm install --save complexflow
 ```
 
 # Basic Usage
