@@ -95,7 +95,7 @@ MIT
 
 # Changelog
 
-* 0.1.0 - Initial commit
-* 0.2.0 - Added documentation and published to npm
-* 0.2.1 - Updated documentation
 * 0.2.2 - Updated documentation
+* 0.2.1 - Updated documentation
+* 0.2.0 - Added documentation and published to npm
+* 0.1.0 - Initial commit
