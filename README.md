@@ -95,6 +95,7 @@ MIT
 
 # Changelog
 
+* 0.2.3 - Removed a bug in constructor for non-concurrent access
 * 0.2.2 - Updated documentation
 * 0.2.1 - Updated documentation
 * 0.2.0 - Added documentation and published to npm

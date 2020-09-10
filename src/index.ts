@@ -33,8 +33,8 @@ class ComplexFlow<T> {
 
     public duration = 0;
     constructor(arg: T, options?: ComplexOptions) {
-        this.storage = { ...arg };
         this.options.detectConficts = options?.detectConficts !== undefined ? options?.detectConficts : this.options.detectConficts;
+        this.storage = this.options.detectConficts ? { ...arg } : arg;
     }
 
     add(complexFunc: ComplexFunction<T>): ComplexFlow<T> {
