@@ -16,6 +16,8 @@ $ npm install --save complexflow
 # Basic Usage
 
 ```typescript
+import ComplexFlow from 'complexflow';
+
 const cf = new ComplexFlow<any>(sharedObject, options);
 cf.add({
     fn: async (a: any) => return a,
@@ -27,6 +29,8 @@ console.log(sharedObject);
 # Example Usage
 
 ```typescript
+import ComplexFlow from 'complexflow';
+
 interface SharedObject {
     one: number;
 }
@@ -95,6 +99,7 @@ MIT
 
 # Changelog
 
+* 0.2.4 - Extended example
 * 0.2.3 - Removed a bug in constructor for non-concurrent access
 * 0.2.2 - Updated documentation
 * 0.2.1 - Updated documentation
